@@ -1,0 +1,16 @@
+<h4>Cadastro de To-do(s)</h4>
+<form class="row g-3" [formGroup]="todoForm" #formDir="ngForm" *ngIf="todoForm">
+    <div class="col-md-6">
+        <label for="description" class="form-label"> Todo: </label>
+        <input type="description" [value]="description" class="form-control" formControlName="description" placeholder="Insira uma descrição:">
+    </div>
+</form>
+<button (click)="add()">Adicionar</button>
+
+<h4 *ngIf="todos?.length">Lista de To-do(s)</h4>
+<ul>
+    <li *ngFor="let todo of todos">
+        <input type="checkbox" [checked]="todo?.isDone" (click)="update(todo)"> - 
+        <span [ngClass]="{'done': todo.isDone}">{{todo.description}}</span> - <button (click)="delete(todo.id)"> Remover </button>
+    </li>
+</ul>

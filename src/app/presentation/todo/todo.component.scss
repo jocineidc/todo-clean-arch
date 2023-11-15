@@ -1,0 +1,15 @@
+:host{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vmin;
+
+    ul li{
+        padding: .5vmin 0;
+    }
+
+    ul li .done{
+        text-decoration: line-through;
+    }
+}
