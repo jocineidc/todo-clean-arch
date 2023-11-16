@@ -1,10 +1,10 @@
-import { TodoUpdateUseCase } from './../../domain/use-cases/todo/todo-update-use-case';
-import { TodoSaveUseCase } from './../../domain/use-cases/todo/todo-save-use-case';
-import { TodoDeleteUseCase } from './../../domain/use-cases/todo/todo-delete-use-case';
-import { TodoGetAllUseCase } from './../../domain/use-cases/todo/todo-get-all-use-case';
 import { Component } from '@angular/core';
 import { Todo } from 'src/app/domain/models/todo/todo.model';
 import { FormControl, FormGroup } from '@angular/forms';
+import { TodoDeleteUseCase } from 'src/app/domain/use-cases/todo/todo-delete/todo-delete-use-case';
+import { TodoGetAllUseCase } from 'src/app/domain/use-cases/todo/todo-get-all/todo-get-all-use-case';
+import { TodoSaveUseCase } from 'src/app/domain/use-cases/todo/todo-save/todo-save-use-case';
+import { TodoUpdateUseCase } from 'src/app/domain/use-cases/todo/todo-update/todo-update-use-case';
 
 @Component({
   selector: 'app-todo',

@@ -1,8 +1,7 @@
-import { TodoRepository } from './../../../data/repositories/todo/todo-repository';
-import { UseCase } from "../../base/use-case";
-import { Todo } from "../../models/todo/todo.model";
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { TodoRepository } from 'src/app/data/repositories/todo/todo-repository';
+import { UseCase } from 'src/app/domain/base/use-case';
+import { Todo } from 'src/app/domain/models/todo/todo.model';
 
 export type TodoUpdateRequestUseCase = Todo;
 export type TodoUpdateResponseUseCase = void

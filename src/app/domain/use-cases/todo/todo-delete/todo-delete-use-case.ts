@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { UseCase } from "../../base/use-case";
 import { TodoRepository } from 'src/app/data/repositories/todo/todo-repository';
+import { UseCase } from "src/app/domain/base/use-case";
 
 export type TodoDeleteResponseUseCase = void;
 export type TodoDeleteRequestUseCase = string;
