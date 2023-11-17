@@ -48,7 +48,13 @@ export class TodoRepository implements Repository {
 
     remove(id: string): void {
         try {
-            const todos = (this.getAll() || []).filter(todo => todo.id !== id);
+            let todos = (this.getAll() || []);
+            const index = todos.findIndex(item => item.id === id);
+            if(index === -1){
+                console.log(`todoRepository.remove() -> To-do não localizado id: ${id}`);
+                throw 'todoRepository.remove() -> falhou, To-do não localizado';
+            }
+            todos = todos.filter(todo => todo.id !== id);
             localStorage.setItem('to-do', JSON.stringify(todos || []));
         } catch (error) {
             console.log('todoRepository.remove() -> falha ao remover To-do', error);
