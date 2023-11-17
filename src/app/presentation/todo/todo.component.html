@@ -7,7 +7,7 @@
 </form>
 <button (click)="add()">Adicionar</button>
 
-<h4 *ngIf="todos?.length">Lista de To-do(s)</h4>
+<h5 *ngIf="todos?.length">Lista de To-do(s)</h5>
 <ul>
     <li *ngFor="let todo of todos">
         <input type="checkbox" [checked]="todo?.isDone" (click)="update(todo)"> - 
