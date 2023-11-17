@@ -4,7 +4,7 @@ import { TodoRepository } from 'src/app/data/repositories/todo/todo-repository';
 import { UseCase } from 'src/app/domain/base/use-case';
 
 export type TodoSaveRequestUseCase = FormGroup;
-export type TodoSaveResponseUseCase = void
+export type TodoSaveResponseUseCase = boolean
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +19,7 @@ export class TodoSaveUseCase implements UseCase {
         try {
             if(!request || !request.value?.description){
                 console.log('TodoSaveUseCase.handle() -> Todo Inválido!');
-                return;
+                return false;
             };
             const todo = {
                 id: '',
@@ -27,9 +27,11 @@ export class TodoSaveUseCase implements UseCase {
                 description: request.value?.description,
             }
             this.todoRepository.save(todo);
-            console.log('TodoSaveUseCase.handle() -> Sucesso')
+            console.log('TodoSaveUseCase.handle() -> Sucesso');
+            return true;
         } catch (error) {
             console.log(`TodoSaveUseCase.handle) -> Não foi possivel salvar o toDo! - error: ${error}`);
+            return false;
         }
     }
 }
