@@ -1,29 +1,27 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { TodoComponent } from "./presentation/todo/todo.component";
+
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+    let fixture: ComponentFixture<TodoComponent>;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+        declarations: [TodoComponent],
+        imports: [FormsModule, ReactiveFormsModule],
+        });
+    });
 
-  it(`should have as title 'todo'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('todo');
-  });
+    it('should create component', () => {
+        fixture = TestBed.createComponent(TodoComponent);
+        expect(fixture.componentInstance).toBeDefined();
+    });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('todo app is running!');
-  });
+    it('should show H4 title', () => {
+        fixture = TestBed.createComponent(TodoComponent);
+        fixture.detectChanges();
+        const compiled = fixture.nativeElement as HTMLElement;
+        expect(compiled.querySelector('h4')?.textContent).toContain('Cadastro de To-do(s)');
+    });
 });
