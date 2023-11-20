@@ -36,7 +36,6 @@ describe('TodoComponent', () => {
     expect(compiled.querySelector('h4')?.textContent).not.toContain('Lista de To-do(s)');
   });
 
-
   it('should show H4 todo list when have todo', () => {
     const todoMock = [{
         id: '1',
@@ -49,9 +48,5 @@ describe('TodoComponent', () => {
     fixture.detectChanges();
     expect(compiled.querySelector('h5')?.textContent).toContain('Lista de To-do(s)');
   });
-
-  
-
-
 
 });
